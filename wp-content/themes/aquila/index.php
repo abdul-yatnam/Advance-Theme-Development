@@ -14,6 +14,6 @@
     <title>Aquila Wordpress Theme</title>
 </head>
 <body>
-    
+    Hello Wordpress
 </body>
 </html>
