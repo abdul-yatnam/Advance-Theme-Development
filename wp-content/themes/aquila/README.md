@@ -14,4 +14,9 @@
 
 # Lecture 5 - Body Part and wp_body_open hook
               * body_class - displays the class on body element and can add addition class as parameter
-              * 
+              
+
+# Lecture 6 -  How to add styelsheet and scripts
+              * Used for time stamp (newest version of theme can Identified using the time stamp);
+              * We can see the timestamp changing when ever the we done any updation on styles.
+              
