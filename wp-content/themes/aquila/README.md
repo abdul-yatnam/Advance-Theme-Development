@@ -31,6 +31,16 @@
               * Adding Bootstrap
               * Downloading Bootstrap Compiled CSS And JS from https://getbootstrap.com/docs/5.0/getting-started/download/,
               * and Adding css and main to assets>src>library>(adding css and js )
-              * There is default (javasript and css in wordpress ) jquery just check in google 
+              * There is default (javascript and css in wordpress ) jquery just check in google 
               * Just check that whether the css and js is included in it but looking view page source code (ctrl + U)
-              
+
+
+# Lecture 9 - Using Bootstrap in wordpress
+              * Here is making the code smaller templates so it is easy to read, bug-fixing,
+              * <?php get_template_part(); ?> this is the function that used to call the template parts, for this we can create a template-part folder in that a subfolder header or any thing that help to identify each files and orders
+              <?php get_template_parts('template-parts/header/nav') ?> #here in nav.php .php is not necessary
+              * If create files called content-page.php and content-post.php in template-parts folder,  Here both are similar, which means we can call by using
+              <?php get_template_parts('template-parts/content','post.php') ?>
+              <?php get_template_parts('template-parts/content','page.php') ?>
+              * Just check general-template.php( function definition, just click "ctrl + mouse Left Button" over the function you want ro study ) , you will get an idea how the function is working with particular slug
+              * 
