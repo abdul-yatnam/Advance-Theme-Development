@@ -89,3 +89,19 @@
 
 
               * Here the auto loader will automatically load the class. 
+
+
+# Lecture 11 - Traits (Not important to the one who have good understanding with php)
+              * Earlier we could only inherit properties and functions from one lass to another by extending them.
+              * If we want the properties/method of inherited class into another, we need to extend it again - creates chain of inheritance
+              * PHP (5.4+) intorduced a mechanism for code resusability called traits
+
+
+              TRAITS :
+               ** Traits allow us to reuse sets of methods freely in several independent classes living in different class hierarchies.
+               ** Share Functionalities from multiple classes
+               ** A trait is similar to a class, but only inteded to group functionality in fine-grained and consistent way
+               ** It's not possible to instantiate a trait on its own
+
+               ** Here It give some examples (Here I'm attaching two screenshot that will help to understand the trait). Check in my-php folder you can see the screenshots
+            
