@@ -5,16 +5,11 @@
  * @package Aquila
  */
 
-// echo '<pre>';
-// print_r(get_stylesheet_uri());
-// wp_die();
 
-
-// Used for time stamp (newest version of theme can Identified using the time stamp);
-// We can see the timestamp changing when ever the we done any updation on styles.
-// echo '<pre>';
-// print_r(filemtime(get_template_directory() . '/style.css'));
-// wp_die();
+if (!defined('AQUILA_DIR_PATH')){
+    define('AQUILA_DIR_PATH', untrailingslashit(get_template_directory_uri()));
+}
+require_once AQUILA_DIR_PATH . '/inc/helper/autoloader.php';
 
 
 function aquila_enqueue_scripts()

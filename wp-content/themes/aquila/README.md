@@ -118,3 +118,18 @@
               * Here just creating a combination of trait and singelton
               
               * Check after http://advpress.example.com/wp-content/themes/aquila/my-php/index.php
+
+
+# Lecture 15 - Singelton design in wordpress
+              * Create /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/inc/headers
+              * In that add autoloader.php
+              * you can just look github repo to find the auto loader
+
+              * Create /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/inc/traits/trait-singelton.php
+              * Here we use Autoloader that help to include all class automatically, we dont need to worry of that
+              * use 
+                ** echo '<pre>';
+                   print_r(AQUILA_DIR_PATH);
+                   ap_die;
+
+                ** which help to find, upto which dir its loading    
