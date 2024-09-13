@@ -112,4 +112,9 @@
               * Ensures a single  class instance and that is global its point of access.
 
               I have attached the screenshot of examples inside my-php folder
-               
+              * Check after http://advpress.example.com/wp-content/themes/aquila/my-php/index.php to understand what the changes and how its working
+
+# Lecture 14 - Trait-Singelton (Not important to the one who have good understanding with php)
+              * Here just creating a combination of trait and singelton
+              
+              * Check after http://advpress.example.com/wp-content/themes/aquila/my-php/index.php
