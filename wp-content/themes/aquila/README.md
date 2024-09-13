@@ -26,3 +26,11 @@
               * Try to check view source code that can help to understand where the style and script has been added
               * add "screenshot.png" in the theme folder that help to give the theme image in themes in wordpress dashboard, (1200 x 900) is the perfect size.
 
+
+# Lecture 8 - Adding Bootstrap 
+              * Adding Bootstrap
+              * Downloading Bootstrap Compiled CSS And JS from https://getbootstrap.com/docs/5.0/getting-started/download/,
+              * and Adding css and main to assets>src>library>(adding css and js )
+              * There is default (javasript and css in wordpress ) jquery just check in google 
+              * Just check that whether the css and js is included in it but looking view page source code (ctrl + U)
+              
