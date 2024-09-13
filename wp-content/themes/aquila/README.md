@@ -45,7 +45,7 @@
               * Just check general-template.php( function definition, just click "ctrl + mouse Left Button" over the function you want ro study ) , you will get an idea how the function is working with particular slug
               
 
-# Lecture 10 - Namespaces, Autoloaders, Traits, Singelton (Namespace in PHP);
+# Lecture 10 - Namespaces, Autoloaders, Traits, Singelton (Namespace in PHP); (Not important to the one who have good understanding with php)
               * NAMESPACES :
                     ** A way of encapsulating items
                     ** Like a virtual folder or directory defined with namespace keyword at the top of the class file followed by the name you like.
@@ -66,3 +66,26 @@
 
                   use App;
                   $product = new Product();    
+
+
+# Lecture 11 - Autoloaders (Not important to the one who have good understanding with php)
+              * AUTOLOADERS :
+                   ** Loading classes or Interfaces automatically
+                   ** SPL_AUTOLOAD_REGISTER()
+                      *** Register any no. of autoloaders
+                      *** Enable classes and interface to be  automatically  loaded if they currently not defined 
+
+              * Here I create  folder and and subfolder to test php autoloader
+              * the structure I will give you         /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/my-php,
+                                                      /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/my-php/includes/Person.php
+                                                      /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/my-php/includes/Student.php
+                                                      /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/my-php/index.php
+
+
+                                                      (These are the file structure I given for my testing you can create in separate) for testing php out of wordpress,
+
+
+                                                      http://advpress.example.com/wp-content/themes/aquila/my-php/index.php    this is the link i given to check the test (because my wordpress website link I give is http://advpress.example.com you can give what evr you want according to your need)
+
+
+              * Here the auto loader will automatically load the class. 
