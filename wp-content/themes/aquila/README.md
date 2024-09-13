@@ -43,4 +43,26 @@
               <?php get_template_parts('template-parts/content','post.php') ?>
               <?php get_template_parts('template-parts/content','page.php') ?>
               * Just check general-template.php( function definition, just click "ctrl + mouse Left Button" over the function you want ro study ) , you will get an idea how the function is working with particular slug
-              * 
+              
+
+# Lecture 10 - Namespaces, Autoloaders, Traits, Singelton (Namespace in PHP);
+              * NAMESPACES :
+                    ** A way of encapsulating items
+                    ** Like a virtual folder or directory defined with namespace keyword at the top of the class file followed by the name you like.
+                    ** Allow you to have two or more classes with same name in different namespaced directories.
+              * Standard Way :
+                  class Product{}                              #define
+
+                  $product = new Product();                    #use
+              * Using Namespaces :
+                  namespace App;
+                  class Product{}
+
+                  $product = new App\Product(); 
+
+
+
+                  (OR)
+
+                  use App;
+                  $product = new Product();    
