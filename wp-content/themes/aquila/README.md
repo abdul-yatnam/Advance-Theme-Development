@@ -91,7 +91,7 @@
               * Here the auto loader will automatically load the class. 
 
 
-# Lecture 11 - Traits (Not important to the one who have good understanding with php)
+# Lecture 12 - Traits (Not important to the one who have good understanding with php)
               * Earlier we could only inherit properties and functions from one lass to another by extending them.
               * If we want the properties/method of inherited class into another, we need to extend it again - creates chain of inheritance
               * PHP (5.4+) intorduced a mechanism for code resusability called traits
@@ -105,3 +105,11 @@
 
                ** Here It give some examples (Here I'm attaching two screenshot that will help to understand the trait). Check in my-php folder you can see the screenshots
             
+
+# Lecture 13 - Singelton (Not important to the one who have good understanding with php)
+              * It's used to restrict  instantiation of a class to single object
+              * Useful when only  on object is required across the system
+              * Ensures a single  class instance and that is global its point of access.
+
+              I have attached the screenshot of examples inside my-php folder
+               
