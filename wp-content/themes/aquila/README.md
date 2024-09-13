@@ -20,3 +20,9 @@
               * Used for time stamp (newest version of theme can Identified using the time stamp);
               * We can see the timestamp changing when ever the we done any updation on styles.
               
+# Lecture 7 - How to handle scripts
+              * Here there is small difference in hook name and function name, hook name "wp_enqueue_scripts" and function name is "wp_enqueue_script"
+              * Here we use register method that can help to enqueue style on some conditions
+              * Try to check view source code that can help to understand where the style and script has been added
+              * add "screenshot.png" in the theme folder that help to give the theme image in themes in wordpress dashboard, (1200 x 900) is the perfect size.
+
