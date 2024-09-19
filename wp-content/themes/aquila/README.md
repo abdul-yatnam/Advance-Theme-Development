@@ -312,3 +312,10 @@ echo $teacher::class;  // Outputs: "Teacher"
              * Here Just added add_theme_support for adding title_tag
              * Which is used to make the titlt dynamic. 
  
+
+# Lecture 19 - Add_theme_support(Custom Logo)
+             * Just go through the link https://developer.wordpress.org/themes/functionality/custom-logo/
+             * Adding custom logo and it feature , so you can see a option for adding custom logo in apprearance>customize>site identity>custom logo
+             * Adding the custom logo to front-end. 
+             * Sometimes the height and width that given in features maynot be loaded, at that time you can set the height and width using style.css still css not working make sure to add "!important".
+             * 
