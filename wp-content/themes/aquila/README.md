@@ -285,3 +285,25 @@ echo $teacher::class;  // Outputs: "Teacher"
               * Since here we are using singleton function we doest want to instantiate the function it will automatically instantiate( if you have ny doubt or for further understand go to previous topics).
               * The path has been included. /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/lectures/lecture-16.png
               * Mainly oops concept is used wordpress to make the functions.php make clean. which help to create large projects and make easy to edit , and help to find where to edit.
+
+# Lecture 17 - Enqueue with OOP.
+              * Here declaring constant
+              if (!defined('AQUILA_DIR_PATH')){
+                  define('AQUILA_DIR_PATH', untrailingslashit(get_template_directory()));
+               }
+               if (!defined('AQUILA_DIR_URI')){
+                  define('AQUILA_DIR_URI', untrailingslashit(get_template_directory_uri()));
+               }
+
+               is used that we can change AQUIL_DIR_URI or PATH instead of get_template_uri() or get_template_dir()
+               for eg: 
+                 ** wp_register_style('style-css', get_stylesheet_uri(), [], filemtime(get_template_directory() . '/style.css'), 'all');
+                 this can be change to 
+                 ** wp_register_style('style-css', get_stylesheet_uri(), [], filemtime(AQUILA_DIR_PATH . '/style.css'), 'all');
+                    wp_register_style('bootstrap-css', AQUILA_DIR_URI . '/assets/src/library/css/bootstrap.min.css', [], false, 'all');
+
+             * Create a file /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/inc/classes/class-assets.php
+             just for separate the enqueue script to Assets- so the functions.php will clean
+             * As we know that autoload will automatically call the classes that are present
+           *  
+ 
