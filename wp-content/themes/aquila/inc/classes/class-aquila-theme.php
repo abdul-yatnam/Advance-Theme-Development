@@ -20,6 +20,9 @@ class AQUILA_THEME
         // Load Class.
 
         Assets::get_instance();
+
+        Menus::get_instance();
+        
         $this->setup_hooks();
     }
 
@@ -90,7 +93,7 @@ class AQUILA_THEME
 
         // Set the global content width for media elements
         global $content_width;
-        if (!isset($content_width)) {
+        if ( !isset($content_width)) {
             $content_width = 1240; // Maximum content width in pixels
         }
 
