@@ -45,8 +45,9 @@
               * Just check general-template.php( function definition, just click "ctrl + mouse Left Button" over the function you want ro study ) , you will get an idea how the function is working with particular slug
               
 
-# Lecture 10 - Namespaces, Autoloaders, Traits, Singelton (Namespace in PHP); (Not important to the one who have good understanding with php)
+# Lecture 10 - Namespaces, Autoloaders, Traits, Singleton (Namespace in PHP); (Not important to the one who have good understanding with php)
               * NAMESPACES :
+                    ** Its a way of defining a directory, not a normal directory a virtual directory 
                     ** A way of encapsulating items
                     ** Like a virtual folder or directory defined with namespace keyword at the top of the class file followed by the name you like.
                     ** Allow you to have two or more classes with same name in different namespaced directories.
@@ -65,7 +66,37 @@
                   (OR)
 
                   use App;
-                  $product = new Product();    
+                  $product = new Product();   
+
+
+                  
+              1. Namespaces
+                 1.1 Encapsulate code to prevent naming conflicts.
+                    1.1.1 Useful for organizing classes across different directories.
+                 1.2 Allow multiple classes with the same name in different directories.
+                 1.3 Simplify class instantiation with the use keyword.
+                    1.3.1 Eliminates need for long prefixes, improving readability.
+
+              2. Autoloaders
+                 2.1 Automatically load classes in PHP.
+                 2.2 Remove the need for manual includes.
+                 2.3 Enhance efficiency in WordPress applications.
+
+              3. Traits
+                 3.1 Enable code reuse in classes.
+                    3.1.1 Allow methods from multiple sources in a single class.
+                 3.2 Promote cleaner, more maintainable code in themes. 
+
+              4. Singletons
+                 4.1 Ensure only one instance of a class.
+                 4.2 Useful for managing resources in larger applications.
+
+            Summary
+            Namespaces: Avoid naming conflicts, improve class organization.
+            Autoloaders: Streamline class loading.
+            Traits: Promote code reuse.
+            Singletons: Manage single class instances for resource control.
+
 
 
 # Lecture 11 - Autoloaders (Not important to the one who have good understanding with php)
@@ -89,8 +120,122 @@
 
 
               * Here the auto loader will automatically load the class. 
+         
+              Autoloaders in Programming Projects
+
+              1. Overview of Autoloaders
+                 1.1 Streamline class and interface loading.
+Example:                   
+```php
+
+class User {
+    public function __construct() {
+        echo "User class loaded!";
+    }
+}
+```
+When instantiated, the User class file will be automatically loaded by the autoloader, avoiding the need to manually include it.
+                 1.2 Reduce manual inclusion, especially in large projects.
+                 1.3 Improve efficiency in projects with multiple classes.
+Example:
+```php
+$user = new User();  // No need for include/require statements     
+```
+
+               2. SPL Autoload Register Function
+
+                 2.1 Automatically load undefined classes.
+                 2.2 Use spl_autoload_register for auto-loading functionality.
+                    2.2.1 Registers custom autoload function to load classes as needed.
+Example:
+```php
+
+spl_autoload_register(function ($class_name) {
+    include 'classes/' . $class_name . '.php';
+});
+
+$student = new Student();  // Automatically loads 'classes/Student.php'
+```
+                 2.3 Simplifies inclusion of classes without manually calling include or require.
+
+              3. Benefits of Autoloaders
+
+                 3.1 Eliminate manual class file inclusion.
+Example: Without autoloaders, you'd need:
+```php
+include 'User.php';
+include 'Student.php';
+```
+With autoloaders, this becomes unnecessary.
+
+                 3.2 Enhance code organization and minimize errors.
+                 3.3 Simplify class instantiation by automatically including required files.
+                    3.3.1 Class files like student and person are auto-included during instantiation.
+Example:
+```php
+
+$person = new Person();  // Automatically loads 'Person.php'
+```
+              4. Structured File Organization
+              
+                 4.1 Using directories (e.g., includes) to manage class files.
+Example: Organize class files in an includes directory:
+
+includes/
+├── User.php
+├── Student.php
+                 4.2 Aids in maintaining project clarity and structure.
+Example:
+```php
+
+spl_autoload_register(function ($class_name) {
+    include 'includes/' . $class_name . '.php';
+});
+```
+
+              5. Traditional vs. Autoloading
+          
+                5.1 Traditional method: Manual inclusion, prone to errors.
+Example (without autoloader):
+```php
+
+require 'User.php';
+require 'Student.php';
+
+``` 
+
+                 5.2 Autoloading: Automates file inclusion, improving efficiency and reducing repetitive code.
+Example (with autoloader):
+```php
+
+$user = new User();  // Autoloader will include 'User.php' automatically
+```
+              1. How Autoloading Works
+          
+                 6.1 Auto-load register checks and retrieves class files.
+Example:
+```php
+spl_autoload_register(function ($class) {
+    include 'src/' . $class . '.php';
+});
+$teacher = new Teacher();  // Automatically loads 'src/Teacher.php'
+```
+
+                 6.2 Ensures all necessary classes are loaded at runtime.
+                 6.3 Echoing class names confirms successful auto-loading.
+Example:
+```php
+echo $teacher::class;  // Outputs: "Teacher"
+```
+                Summary
+                
+                Autoloaders: Automate class loading, reducing manual effort, and improving project structure.
+                SPL Autoload Register: A built-in PHP function that simplifies the process of including class files automatically, enhancing modularity and efficiency.
 
 
+
+                SPL - Standard PHP Library.
+                
 # Lecture 12 - Traits (Not important to the one who have good understanding with php)
               * Earlier we could only inherit properties and functions from one lass to another by extending them.
               * If we want the properties/method of inherited class into another, we need to extend it again - creates chain of inheritance
@@ -106,7 +251,7 @@
                ** Here It give some examples (Here I'm attaching two screenshot that will help to understand the trait). Check in my-php folder you can see the screenshots
             
 
-# Lecture 13 - Singelton (Not important to the one who have good understanding with php)
+# Lecture 13 - Singleton (Not important to the one who have good understanding with php)
               * It's used to restrict  instantiation of a class to single object
               * Useful when only  on object is required across the system
               * Ensures a single  class instance and that is global its point of access.
@@ -114,22 +259,29 @@
               I have attached the screenshot of examples inside my-php folder
               * Check after http://advpress.example.com/wp-content/themes/aquila/my-php/index.php to understand what the changes and how its working
 
-# Lecture 14 - Trait-Singelton (Not important to the one who have good understanding with php)
-              * Here just creating a combination of trait and singelton
+# Lecture 14 - Trait-Singleton (Not important to the one who have good understanding with php)
+              * Here just creating a combination of trait and singleton
               
               * Check after http://advpress.example.com/wp-content/themes/aquila/my-php/index.php
 
 
-# Lecture 15 - Singelton design in wordpress
+# Lecture 15 - Singleton design in wordpress
               * Create /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/inc/headers
               * In that add autoloader.php
               * you can just look github repo to find the auto loader
 
-              * Create /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/inc/traits/trait-singelton.php
-              * Here we use Autoloader that help to include all class automatically, we dont need to worry of that
+              * Create /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/inc/traits/trait-singleton.php
+              * Here we use Auto loader that help to include all class automatically, we don't need to worry of that
               * use 
                 ** echo '<pre>';
                    print_r(AQUILA_DIR_PATH);
                    ap_die;
 
-                ** which help to find, upto which dir its loading    
+                ** which help to find, upto which dir its loading       
+             * /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/lectures/lecture-15.png
+
+# Lecture 16 - OOP Class
+              * Create /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/inc/classes/class-aquila-theme.php
+              * Since here we are using singleton function we doest want to instantiate the function it will automatically instantiate( if you have ny doubt or for further understand go to previous topics).
+              * The path has been included. /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/lectures/lecture-16.png
+              * Mainly oops concept is used wordpress to make the functions.php make clean. which help to create large projects and make easy to edit , and help to find where to edit.
