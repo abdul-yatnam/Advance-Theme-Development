@@ -41,9 +41,7 @@ function autoloader( $resource = '' ) {
 	}
 
 
-	echo '<pre>';
-	print_r($path);
-	wp_die();
+
 
 	$directory = '';
 	$file_name = '';
