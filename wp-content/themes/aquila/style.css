@@ -14,3 +14,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: aquila-custom
 This theme is open source and licensed under the GPL. Use it to create something amazing and share it with the community.
 */
+
+
+
+.custom-logo {
+    height: 60px !important;
+    width: 60px !important;
+}
+
+.custom-logo-link img {
+    height: 60px !important;
+    width: 60px !important;
+}
