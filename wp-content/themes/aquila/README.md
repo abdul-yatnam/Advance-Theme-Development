@@ -305,5 +305,10 @@ echo $teacher::class;  // Outputs: "Teacher"
              * Create a file /srv/www/advance_wordpress/wordpress/wp-content/themes/aquila/inc/classes/class-assets.php
              just for separate the enqueue script to Assets- so the functions.php will clean
              * As we know that autoload will automatically call the classes that are present
-           *  
+
+# Lecture 18 - Add_theme_support
+             * In class we normally use add_action('wp_enqueue_scripts', [$this, 'register_styles']); for doing action .
+             * Here $this variable is included in class, after that in call the function that need to do hook.
+             * Here Just added add_theme_support for adding title_tag
+             * Which is used to make the titlt dynamic. 
  

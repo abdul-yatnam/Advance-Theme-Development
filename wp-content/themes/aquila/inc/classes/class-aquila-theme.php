@@ -27,8 +27,20 @@ class AQUILA_THEME
     //  Its protected bcz I don't want any other classes to access it  
     protected function setup_hooks()
     {
-        
-     
+
+        /**
+         * Action hooks.
+         * 
+         */
+
+        add_action('after_setup_theme', [$this, 'setup_theme']);
+
+
+    }
+
+    public function setup_theme()
+    {
+        add_theme_support('title-tag');
 
     }
 
