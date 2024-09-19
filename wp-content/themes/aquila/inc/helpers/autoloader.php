@@ -40,6 +40,11 @@ function autoloader( $resource = '' ) {
 		return;
 	}
 
+
+	echo '<pre>';
+	print_r($path);
+	wp_die();
+
 	$directory = '';
 	$file_name = '';
 
