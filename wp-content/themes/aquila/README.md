@@ -318,4 +318,15 @@ echo $teacher::class;  // Outputs: "Teacher"
              * Adding custom logo and it feature , so you can see a option for adding custom logo in apprearance>customize>site identity>custom logo
              * Adding the custom logo to front-end. 
              * Sometimes the height and width that given in features maynot be loaded, at that time you can set the height and width using style.css still css not working make sure to add "!important".
-             * 
+              
+
+# Lecture 20 - Add_theme_support(Custom background)
+             * Just go through https://developer.wordpress.org/themes/functionality/custom-backgrounds/
+             * Added a option for custom background check class-aquila-theme.php
+             * you can check through apprearance>customize>site identity>custom background.
+             * Now adding to front-end, but here it invoke by defaut ( by the help of wp_head )
+             * just check the function definition.
+             * just check class-wp-rest-themes-controller.php here we will get wall all properties are there for it.
+             
+
+# Lecture                   
