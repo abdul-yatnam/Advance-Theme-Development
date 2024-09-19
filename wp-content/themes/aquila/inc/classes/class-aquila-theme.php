@@ -51,6 +51,11 @@ class AQUILA_THEME
             'unlink-homepage-logo' => true,
         ]);
 
+        add_theme_support( 'custom-background',[
+            'default-color' => '0000ff',
+            'default-image' => '',
+        ]);
+
     }
 
 
