@@ -333,4 +333,30 @@ echo $teacher::class;  // Outputs: "Teacher"
              * It is used to add featured-image option on the pages
              * In this lecture mostly covered different theme_supports and its functionalities more are to be covered just check on google
              * You can just go through class-aquila-theme.php and parallely check the dashboard before and after adding theme support, so you can understand where the new options are present.
-             *                  
+                               
+# Lecture 22 - Registering Nav Menu
+             * Create a new class called class-menus.php 
+             * For translation purposes we use translation functions such as esc_html_e
+             * so here we change the 
+                 ** register_nav_menus([
+                     'aquila-header-menu' => __('Header Menu'),
+                     'aquila-footer-menu' => __('Footer Menu'),
+         
+                   ]);
+
+                   -----(to)---------
+
+                 ** register_nav_menus([
+                     'aquila-header-menu' => esc_html__('Header Menu','aquila'),
+                     'aquila-footer-menu' => esc_html__('Footer Menu','aquila'),
+         
+                   ]); 
+             
+             * Just check the menus have been registered or not in dashboard>appearance>menus.
+             *  So just create some pages on dashboard and register the menus by going to dashboard>appearance>menus and create a menu, link it with which menu type you want.whether to footer menu or header menu (as your need).
+             *  After assigning the next work is to done on front-end : that is displaying the registed menu  on the locations that you want
+             *  for that we use wp_nav_menu(array(...)) on the template_part>nav .
+             * When ever we create nav menu the wordpress will create a bunch of classes around the navmenu just inspect or view page source code
+             * To solve that issue there are several methods
+             * one of the advance way is using the Nav Walker class.
+             * There is other method it will be covered in the coming lectures.    
