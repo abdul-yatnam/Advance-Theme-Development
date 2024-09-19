@@ -327,6 +327,10 @@ echo $teacher::class;  // Outputs: "Teacher"
              * Now adding to front-end, but here it invoke by defaut ( by the help of wp_head )
              * just check the function definition.
              * just check class-wp-rest-themes-controller.php here we will get wall all properties are there for it.
-             
 
-# Lecture                   
+
+# Lecture 21 - Add_theme_support(Post thumbnails)
+             * It is used to add featured-image option on the pages
+             * In this lecture mostly covered different theme_supports and its functionalities more are to be covered just check on google
+             * You can just go through class-aquila-theme.php and parallely check the dashboard before and after adding theme support, so you can understand where the new options are present.
+             *                  
