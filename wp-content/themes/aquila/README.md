@@ -332,7 +332,7 @@ echo $teacher::class;  // Outputs: "Teacher"
 # Lecture 21 - Add_theme_support(Post thumbnails)
              * It is used to add featured-image option on the pages
              * In this lecture mostly covered different theme_supports and its functionalities more are to be covered just check on google
-             * You can just go through class-aquila-theme.php and parallely check the dashboard before and after adding theme support, so you can understand where the new options are present.
+             * You can just go through class-aquila-theme.php and parallelly check the dashboard before and after adding theme support, so you can understand where the new options are present.
                                
 # Lecture 22 - Registering Nav Menu
              * Create a new class called class-menus.php 
@@ -361,7 +361,7 @@ echo $teacher::class;  // Outputs: "Teacher"
              * one of the advance way is using the Nav Walker class.
              * There is other method it will be covered in the coming lectures.    
 
-# Lecture 23 - wp_nav_menu
+# Lecture 23 - wp_nav_menu - Create custom markup for wordpress menu II (Important Topic).
              * Displaying Menus with WP Functions:
                 ** Previously, the wp_nav_menu() function was used to display menus.
                 ** However, this function offers limited flexibility for custom menu structures. 
@@ -415,4 +415,83 @@ echo $teacher::class;  // Outputs: "Teacher"
 
 
 
-               
+# Lecture 24 - Create custom markup for wordpress menu II (Important topic).
+             * We are using Bootstrap default Nav component to create custom markup.
+             * Modify the HTML Structure:
+                ** Begin by cleaning up your HTML structure within the <ul> tag where the menu will be displayed.
+                ** Keep the necessary parts like the parent menu structure and child menu structure.
+                ** For parent menus, use a simple structure, and for those with child menus, use a dropdown class structure.
+
+             * Check if the Menu Exists:
+                ** Use a conditional to ensure that the header menus are not empty and are an array:
+```php
+               if (!empty($header_menus) && is_array($header_menus)) {}
+
+```          
+             * Loop Through Menu Items:
+                ** Loop through the menu items with a foreach loop:
+                
+            
+```php
+               foreach ($header_menus as $menu_item) {
+                  if (!$menu_item->menu_item_parent) {
+                     // It's a parent menu
+                  }
+               }
+
+```               
+             * Get Child Menu Items:
+                ** Create a function to retrieve child menu items based on the parent menu's ID:
+                
+            
+```php
+               public function get_child_menu_items($menu_array, $parent_id) {
+                  $child_menus = [];
+                  if (!empty($menu_array) && is_array($menu_array)) {
+                     foreach ($menu_array as $menu_item) {
+                           if ($menu_item->menu_item_parent == $parent_id) {
+                              $child_menus[] = $menu_item;
+                           }
+                     }
+                  }
+                  return $child_menus;
+               }
+
+
+```
+                ** This function filters the menu array to get the child items.               
+                                
+             * Build the Menu Structure:
+                ** For each parent menu item, check if it has child menu items using the function:
+                
+            
+```php
+               $child_menu_items = get_child_menu_items($menu_items, $menu_item->ID);
+               if (!empty($child_menu_items)) {
+                  // It has children, use dropdown structure
+               } else {
+                  // No children, use simple menu structure
+               }
+
+
+```                 
+             * Output Menu Items Dynamically:
+                ** For both parent and child menus, dynamically generate the HTML using:
+                
+            
+```php
+               echo esc_url($menu_item->url);  // For URL
+               echo esc_html($menu_item->title);  // For title
+
+
+
+```                 
+                ** Loop through the child menu items if they exist and build the submenu dynamically.
+             
+             * Bootstrap Menu Structure:
+                ** Use Bootstrap classes like nav-item for parent menus and dropdown-item for child menus. If the menu has children, wrap it in a dropdown structure.
+
+             * Final Output:
+                ** After generating the entire menu structure dynamically, it becomes flexible. Any changes in the WordPress admin menu will reflect in the frontend without modifying the code.        
+
+
