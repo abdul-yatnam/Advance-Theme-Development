@@ -514,3 +514,32 @@ echo $teacher::class;  // Outputs: "Teacher"
                 ** The wp_posts table holds all post types, distinguished by the post_type column (e.g., post, page, nav_menu_item).
                 ** Just check the db using "phpmyadmin".    
       
+
+# Lecture - 26 - wp template hierarchy
+             * In you vs-code (or any other code), wordpress>wp-blog-header.php 
+             * In that you can see a path that from wp-includes ("/template-loader.php")  if you want to navigate easily you can just press    ctrl+p and type the filename.
+             * Or just go to wp-includes and check the file. 
+             * Just go through the /template-loader.php, so you can understand how its calling the template-hierarchy.
+             * You can just check the functions that present as key in /template-loader.php  and look in template.php (search using ctrl+p),
+             you can see what is happening in the wordpress and how we can name a file for different files.
+
+             * Template Hierarchy Overview:
+                ** WordPress uses query strings to decide which templates to load for different types of content.
+                ** The hierarchy starts from specific templates (e.g., single post) and falls back to more general ones (e.g., index.php) if no specific template is found.
+
+             * Example of Template Search:
+                ** For a single blog post, WordPress will check:
+                   *** custom-template.php
+                   *** single-post.php
+                   *** single.php
+                   *** singular.php
+                   *** If none exist, it uses index.php.
+
+             * Core File Exploration:
+                ** The video dives into WordPress core files (template-loader.php and wp-blog-header.php) to show how WordPress loads the appropriate templates based on the URL and type of content.
+             * Custom Templates:
+                ** You can create custom templates like archive-book.php for specific post types. WordPress will automatically use this file if it matches the content.
+
+             * Fallback to index.php:
+                ** If no specific templates are found, WordPress always falls back to index.php, which is the minimum required file in a WordPress theme, along with style.css.
+      
