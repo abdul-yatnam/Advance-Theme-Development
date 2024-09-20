@@ -496,7 +496,7 @@ echo $teacher::class;  // Outputs: "Teacher"
 
 
 
-# Lecture - 25 - Post and Page 
+# Lecture 25 - Post and Page 
              * Posts vs. Pages:
                 ** Posts are time-based content, typically used for blogs and arranged in reverse chronological order. They can be categorized and tagged.
                 ** Pages are static and typically not time-sensitive. They're used for singular content like "About Us" or "Contact.".
@@ -514,3 +514,75 @@ echo $teacher::class;  // Outputs: "Teacher"
                 ** The wp_posts table holds all post types, distinguished by the post_type column (e.g., post, page, nav_menu_item).
                 ** Just check the db using "phpmyadmin".    
       
+
+# Lecture 26 - wp template hierarchy
+             * In you vs-code (or any other code editor), wordpress>wp-blog-header.php 
+             * In that you can see a path that from wp-includes ("/template-loader.php")  if you want to navigate easily you can just press    ctrl+p and type the filename.
+             * Or just go to wp-includes and check the file. 
+             * Just go through the /template-loader.php, so you can understand how its calling the template-hierarchy.
+             * You can just check the functions that present as key in /template-loader.php  and look in template.php (search using ctrl+p),
+             you can see what is happening in the wordpress and how we can name a file for different files.
+
+             * Template Hierarchy Overview:
+                ** WordPress uses query strings to decide which templates to load for different types of content.
+                ** The hierarchy starts from specific templates (e.g., single post) and falls back to more general ones (e.g., index.php) if no specific template is found.
+
+             * Example of Template Search:
+                ** For a single blog post, WordPress will check:
+                   *** custom-template.php
+                   *** single-post.php
+                   *** single.php
+                   *** singular.php
+                   *** If none exist, it uses index.php.
+
+             * Core File Exploration:
+                ** The video dives into WordPress core files (template-loader.php and wp-blog-header.php) to show how WordPress loads the appropriate templates based on the URL and type of content.
+             * Custom Templates:
+                ** You can create custom templates like archive-book.php for specific post types. WordPress will automatically use this file if it matches the content.
+
+             * Fallback to index.php:
+                ** If no specific templates are found, WordPress always falls back to index.php, which is the minimum required file in a WordPress theme, along with style.css.
+      
+# Lecture 27 - wp template hierarchy II
+             * Creating a Blog Page: The presenter shows how to set any page as the blog page from the WordPress customizer. Once set, WordPress uses the index.php template to display blog posts unless a more specific template like home.php is created.
+
+             * Custom Homepage Template: By creating a front-page.php, you can define a unique layout for the homepage. This overrides the default behavior, allowing a different template for the homepage and the blog.
+
+             * Template Hierarchy: WordPress follows a hierarchy to select templates for pages. If specific templates like home.php or front-page.php are not found, it falls back to index.php.
+
+             * Custom Page Template: The page.php file is created to handle single pages, as using index.php for all pages is not ideal.
+
+             * Single Post Template: To display individual blog posts, the presenter creates a single.php template. This follows WordPress's template hierarchy for posts.
+
+             * Permalinks: The presenter updates the permalink structure to have cleaner URLs, making them more user-friendly. 
+             * Change permalink structure to Post name( for cleaner url ). Go to dashboard>settings>permalink structure>post name.
+             * In this session we are mainly focusing adding some php files to our theme and we are looking their priority according to Hierarchy.
+             * I have attaching the hierarchy images with this. 
+             * The below is the files that we can give to a theme
+               style.css
+               index.php
+               functions.php
+               header.php
+               footer.php
+               single.php
+               page.php
+               front-page.php
+               home.php
+               archive.php
+               category.php
+               tag.php
+               search.php
+               404.php
+               sidebar.php
+               comments.php
+               author.php
+               taxonomy.php
+               attachment.php
+               image.php
+               custom-template.php (Optional for custom templates)
+               screenshot.png (Optional, theme screenshot)
+
+               Optional directories:
+               assets/ (for styles, scripts, images)
+               template-parts/ (for reusable partials like headers, footers)
+               languages/ (for translation files)
