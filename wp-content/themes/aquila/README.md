@@ -495,3 +495,22 @@ echo $teacher::class;  // Outputs: "Teacher"
                 ** After generating the entire menu structure dynamically, it becomes flexible. Any changes in the WordPress admin menu will reflect in the frontend without modifying the code.        
 
 
+
+# Lecture - 25 - Post and Page 
+             * Posts vs. Pages:
+                ** Posts are time-based content, typically used for blogs and arranged in reverse chronological order. They can be categorized and tagged.
+                ** Pages are static and typically not time-sensitive. They're used for singular content like "About Us" or "Contact.".
+
+             * WordPress Post Types:
+                ** Post: The default type for blog entries.
+                ** Page: Used for static content.
+                ** Attachment: Media files like images and videos.
+                ** Revision: Stores drafts and previous versions of posts.
+                ** Navigation Menu: Stores navigation items.
+                ** Custom CSS: Holds additional CSS written via the Customizer.
+                ** Change Sets: Stores customization session data in the event of a browser crash.
+
+             * Database View:
+                ** The wp_posts table holds all post types, distinguished by the post_type column (e.g., post, page, nav_menu_item).
+                ** Just check the db using "phpmyadmin".    
+      
