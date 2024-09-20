@@ -6,7 +6,11 @@
  *  */
 get_header();
 ?>
+<?php
+echo 'Template file: ' . basename( __FILE__ );
+?>
 
-
-<div class="content">THE CONTENT</div>
-<?php get_footer();
+<div class="content">
+    <?php esc_html_e(' Content Blog', 'aquila') ?>
+</div>
+<?php get_footer(); ?>
