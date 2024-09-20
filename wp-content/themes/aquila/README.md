@@ -354,9 +354,65 @@ echo $teacher::class;  // Outputs: "Teacher"
              
              * Just check the menus have been registered or not in dashboard>appearance>menus.
              *  So just create some pages on dashboard and register the menus by going to dashboard>appearance>menus and create a menu, link it with which menu type you want.whether to footer menu or header menu (as your need).
-             *  After assigning the next work is to done on front-end : that is displaying the registed menu  on the locations that you want
+             *  After assigning the next work is to done on front-end : that is displaying the registered menu  on the locations where you want
              *  for that we use wp_nav_menu(array(...)) on the template_part>nav .
-             * When ever we create nav menu the wordpress will create a bunch of classes around the navmenu just inspect or view page source code
+             * When ever we create nav menu the wordpress will create a bunch of classes around the nav menu just inspect or view page source code to see the classes that provided, we can override it.
              * To solve that issue there are several methods
              * one of the advance way is using the Nav Walker class.
              * There is other method it will be covered in the coming lectures.    
+
+# Lecture 23 - wp_nav_menu
+             * Displaying Menus with WP Functions:
+                ** Previously, the wp_nav_menu() function was used to display menus.
+                ** However, this function offers limited flexibility for custom menu structures. 
+             * Custom Menu Structure with WP Functions:
+                ** To create a custom menu structure, use the function wp_get_nav_menu_items() to retrieve menu items as an array.
+                ** This allows more control over how the menu is displayed.
+             * Retrieving Menu ID by Location:
+                ** Instead of manually grabbing the menu ID (which can change), it's more reliable to get the menu ID by its location.
+                ** Function: get_nav_menu_locations():
+                   *** Retrieves all menu locations on the site.
+                   *** A custom function get_menu_ID() is created to get the menu ID by passing the location as a parameter.
+                   *** Example:
+```php
+                       public function get_menu_ID($location) {
+                           $locations = get_nav_menu_locations();
+                           return $locations[$location] ?? null;
+                      }
+
+```
+                   *** The menu location (e.g., "header-menu") is passed, and the corresponding menu ID is returned.
+
+
+             * Displaying Menu Items:
+                ** With the menu ID obtained, the function wp_get_nav_menu_items($menu_ID) retrieves all the menu items as an array.
+                ** The retrieved array includes menu information such as title, URL, and parent-child relationships.
+             * Handling Parent-Child Menu Items:
+                ** Menu items have a menu_item_parent property.
+                   *** Parent Menu: Has menu_item_parent = 0.
+                   *** Child Menu: Has a menu_item_parent equal to the parent menu's ID.
+                ** To display a hierarchical menu:
+                   *** Loop through the items, first displaying those with menu_item_parent = 0 (parent items).
+                   *** For each parent item, loop again to find its child items and display them accordingly.
+
+                ** Example Code Snippet for Custom Menu:
+```php
+               $menu_ID = get_menu_ID('header-menu');
+               $menu_items = wp_get_nav_menu_items($menu_ID);
+               
+               foreach ($menu_items as $item) {
+                  if ($item->menu_item_parent == 0) {
+                     echo "<li>{$item->title}</li>";
+                     foreach ($menu_items as $sub_item) {
+                           if ($sub_item->menu_item_parent == $item->ID) {
+                              echo "<ul><li>{$sub_item->title}</li></ul>";
+                           }
+                     }
+                  }
+               }
+
+```                    
+
+
+
+               
